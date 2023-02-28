@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .one{
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .one img{
+            width: 80%;
+        }
+        .two{
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+        p{
+            font-weight: 400;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .9rem;
+            text-align: center;
+            width: 70%;
+        }
+        a{
+            color: white;
+            font-size: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        text-decoration: none;
+        }
+        button{
+        border: none;
+        outline: none;
+        background-color:#1e7b85;
+        font-size: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        padding: 15px 55px;
+        border-radius: 25px;
+       }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <img src="{% static 'error.png' %}" >
+    </div>
+    <div class="two">
+        <h1>Error</h1>
+        
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque provident ad, quisquam dolor nostrum vero autem exercitationem, maxime distinctio doloremque consequuntur. Magnam error vero iure animi quisquam odit molestias exercitationem.</p>
+        <button><a href="/">login</a></button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+    <title>Home</title>
+    <style>
+        body {
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+
+        .back {
+            width: 100vw;
+            height: 100vh;
+            background-image: url("{% static 'home/Back.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+
+        }
+
+        .first {
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            z-index: 1;
+
+        }
+
+        .area1 {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .area2 {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img {
+            padding-top: 100px;
+            padding-left: 70px;
+            /* border: 2px solid red; */
+            width: 60%;
+            height: 70%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .landingImg {
+            width: 80%;
+        }
+
+        #i2 {
+            z-index: 3;
+        }
+
+        .con {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 70%;
+            height: 60%;
+            /* border: 2px solid red; */
+        }
+
+        .heading1,
+        .heading2 {
+            margin-top: 0px;
+            margin-bottom: 1px;
+            padding: 0px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 2.05rem;
+            color: rgb(39, 39, 39);
+        }
+
+        .con p {
+            margin-top: 15px;
+            margin-bottom: 13px;
+            font-size: 1.030rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 500;
+            color: rgb(16, 16, 16);
+        }
+
+        #btnHeading {
+            margin-top: 10px;
+            padding: 13px 28px;
+            border: none;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .9rem;
+            border-radius: 20px;
+            background: black;
+            color: white;
+
+        }
+
+        .nav {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            /* background-color: aqua; */
+        }
+
+        .nav ul {
+            width: 70vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .nav ul li {
+            text-decoration: none;
+            list-style: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+            font-size: 1.05rem;
+
+        }
+        .nav ul li a{
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all linear .2s;
+            color: black;
+        }
+        .nav ul li a:hover{
+            color: #1e7b85;
+        }
+        #now a:hover{
+            color: white;
+        }
+        #now {
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-color: #1e7b85;
+        }
+
+        #now1{
+            color: white;
+        }
+        #now1 a:hover{
+            color: white;
+        }
+        #drag {
+            outline: none;
+            border: none;
+            margin-left: 2px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #drag svg {
+            margin-left: 7px;
+            padding-top: 2px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #services {
+            position: relative;
+            display: flex;
+        }
+
+        .mm {
+            position: absolute;
+            left: -25px;
+            top: 20px;
+            width: 125px;
+            height: 125px;
+            /* background-color: #f6a96528; */
+            display: flex;
+            color: #F6A865;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .mm a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .9rem;
+            font-weight: 500;
+        }
+
+        .Metarial {
+            width: 100vw;
+            height: 120vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color:#f1f1f1;
+        }
+
+        .Mheading {
+            /* margin-top: 30px; */
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Mheading h1 {
+            margin-top: 70px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 500;
+            border: none;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1e7b85;
+        }
+
+
+        .Mfirst {
+            margin-top: 80px;
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .book {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book img {
+            width: 150px;
+        }
+
+        .book h2 {
+
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 1.1rem;
+            margin: 8px;
+            padding: 0px;
+            font-weight: 600;
+        }
+
+        .book h3 {
+
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 1rem;
+            margin: 2px;
+            padding: 0px;
+            font-weight: 500;
+        }
+
+        .book a {
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .9rem;
+            margin: 7px;
+            color: #F6A865;
+            padding: 0px;
+            font-weight: 500;
+        }
+
+        .Ms {
+            margin-top: 20px;
+        }
+
+        .detail {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+
+        }
+
+        .Dfirst {
+            width: 50%;
+            height: 100%;
+        }
+
+        #Dfirst {
+            background-color: #f9faff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .innerD {
+            width: 60%;
+            height: 50%;
+        }
+
+        .innerD h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 2.7rem;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding: 0px;
+            font-weight: 500;
+            color: rgb(0, 0, 0);
+        }
+
+        .innerD p {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: .9rem;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 0px;
+            color: black;
+            font-weight: 400;
+        }
+
+        .innerD button {
+            margin-top: 20px;
+            padding: 13px 28px;
+            border: none;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .9rem;
+            border-radius: 20px;
+            background-color: #1e7b85;
+            color: white;
+        }
+
+        .break {
+            width: 100%;
+            height: 120px;
+            background-color: #f1f1f1;
+        }
+
+        .Category {
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: #EFEFEF;
+        }
+
+        .Cheading {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Cheading h1 {
+            margin-top: 70px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 500;
+            border: none;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1e7b85;
+        }
+
+        .Cfirst {
+            margin-top: 80px;
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .Cfirst .book {
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Cfirst .book img {
+            width: 220px;
+        }
+
+        .Cfirst .book h2 {
+
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 1.1rem;
+            margin-top: 25px;
+            padding: 0px;
+            font-weight: 600;
+        }
+
+        .Cs {
+            margin-top: 20px;
+        }
+
+        .Kidetarial {
+            width: 100vw;
+            height: 120vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color:#fff;
+        }
+
+        .Kidheading {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .Kidheading h1 {
+            margin-top: 70px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 500;
+            border: none;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1e7b85 ;
+        }
+        .feedback {
+            width: 100vw;
+            height: 100vh;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .innerf {
+            width: 60%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .innerf h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 500;
+            font-size: 2rem;
+            margin: 0;
+            color: black;
+        }
+
+        .f {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+        }
+
+        .inf {
+            border: none;
+            width: 40%;
+            outline: none;
+            background-color: transparent;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 10px;
+            color: black;
+            
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+
+        .inf::placeholder {
+            font-size: .9rem;
+            font-weight: 300;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+
+        }
+        .inf:focus{
+            outline: auto;
+            outline-color: #1e7b85;
+            border: none;
+        }
+
+        .textbox {
+            width: 100%;
+        }
+
+        #text {
+            width: 100%;
+            height: 120px;
+            /* overflow-y: scroll; */
+            margin: 0px;
+            box-sizing: border-box;
+            resize: none;
+            outline: none;
+            background: transparent;
+            color: black;
+            border: none;
+            border: 1px solid #1b1b1b;
+            border-radius: 3px;
+            padding: 10px 10px;
+
+        }
+
+        #text:focus{
+            outline: auto;
+            outline-color: #1e7b85;
+            border: none;
+        }
+        .textboxFeed::placeholder {
+            font-size: .9rem;
+            font-weight: 300;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+
+        }
+
+        .innerf button {
+            outline: none;
+            font-size: 1rem;
+            color: white;
+            font-weight: 500;
+            background-color: #1e7b85;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .last {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .last h1 {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .last p {
+            width: 50%;
+            text-align: center;
+            font-style: .9;
+            font-size: 300;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        .Ls {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .l {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .l .bi {
+            width: 20px;
+            height: 20px;
+        }
+
+        #y {
+            background-color: white;
+        }
+
+        #y .bi {
+            color: #FF0000;
+        }
+
+        #t {
+            background-color: white;
+        }
+
+        #t .bi {
+            color: #00acee;
+        }
+
+        #g {
+            background-color: white;
+        }
+
+        #g .bi {
+            color: #343a40;
+        }
+
+        #y:hover {
+            background-color: #FF0000;
+        }
+
+        #y:hover .bi {
+            color: white;
+        }
+
+        #t:hover {
+            background-color: #00acee;
+        }
+
+        #t:hover .bi {
+            color: white;
+        }
+
+        #g:hover {
+            background-color: #495057;
+        }
+
+        #g:hover .bi {
+            color: white;
+        }
+
+        #services {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        #servicesBox {
+            position: absolute;
+            top: 50px;
+            left: -200px;
+            width: 230px;
+            height: 220px;
+            background-color: white;
+            border: 1px solid rgba(62, 62, 62, 0.323);
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.08), -2px -2px 2px rgba(0, 0, 0, 0.08);
+        }
+
+        #servicesBox ul{
+            
+            display:flex;
+            justify-content: flex-start;
+            /* align-items: flex-start; */
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            margin-top: 30px;
+        }
+        #servicesBox ul li{
+            display: flex;
+            justify-content: flex-end;
+            width: 65%;
+            margin: 0;
+            padding: 0;
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+        #servicesBox ul li a{
+            display: flex;
+            text-decoration: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: black;
+            font-size: .9rem;
+            font-weight: 400;
+            transition: all linear .2s;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #servicesBox ul li a:hover{
+            color: #1e7b85;
+        }
+
+
+
+
+
+
+        #person {
+            position: relative;
+            left: 0;
+            top: 0;
+            
+        }
+
+        /* #person  a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+        #pBox {
+            position: absolute;
+            top: 50px;
+            left: -200px;
+            width: 230px;
+            height: 320px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgba(62, 62, 62, 0.323);
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.08), -2px -2px 2px rgba(0, 0, 0, 0.08);
+        }
+
+        #pBox ul{
+            
+            display:flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            margin-top: 30px;
+        }
+        #pBox ul li{
+            display: flex;
+            justify-content: flex-end;
+            width: 65%;
+            margin: 0;
+            padding: 0;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        #pBox ul li a{
+            display: flex;
+            text-decoration: none;
+            font-size: .9rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: black;
+            font-weight: 400;
+            transition: all linear .2s;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #now1:hover{
+            color: white;
+        }
+        #pBox ul li a:hover{
+            color: #1e7b85;
+        }
+        li {
+            cursor: pointer;
+        }
+        #message {
+            position: fixed;
+            left: 0;
+            top: 15px;
+            width: 100vw;
+            z-index: 10;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="message">
+    </div>
+    <main>
+        <div class="first">
+            <div class="area1">
+                <div class="con">
+                    <div class="areaFirst">
+                        <h1 class="heading1">The </h1>
+                        <h1 class="heading2">Paris Library</h1>
+                    </div>
+                    <p>Based on the true World War II story of the heroic librarians at the
+                        American Library in Paris, this is an unforgettable story of romance,
+                        friendship, family, and the power of literature to bring us together,
+                        perfect for fans of The Lilac Girls and The Paris Wife.</p>
+                    <button id="btnHeading">Learn more</button>
+                </div>
+            </div>
+            <div class="area2">
+                <div class="img">
+                    <img class="landingImg" id="i1" src="{% static 'home/LandingPage1.png' %}">
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="back"></div>
+    <div class="nav">
+        <ul>
+            <li id="now"> <a href="/home" id="now1">  Home</a></li>
+            <li><a href="/AboutUs">About</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/Ebooks">Ebooks</a></li>
+            <li id="person">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+            </a>
+            <div id="pBox">
+                <ul>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/returnBook">Return book</a></li>
+                    <li><a href="/searchBook">Search book</a></li>
+                    <li><a href="/history">History</a></li>
+                    <li><a href="/LogOut">Log out</a></li>
+                </ul>
+            </div></li>
+        </ul>
+    </div>
+    <div class="break" style="background-color:#f1f1f1  ; height: 30px;"></div>
+    <div class="Metarial">
+        <div class="Mheading">
+            <h1>New Metarial</h1>
+        </div>
+        <div class="Mfirst">
+            <div class="book">
+                <img src="{% static 'home/L1.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L2.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L3.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L4.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+        </div>
+        <div class="Mfirst" id="Ms">
+            <div class="book">
+                <img src="{% static 'home/L1.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L2.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L3.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L4.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+        </div>
+    </div>
+    <div class="break"></div>
+    <div class="detail">
+        <div class="Dfirst"></div>
+        <div id="Dfirst" class="Dfirst">
+            <div class="innerD">
+                <h1>This Day in History</h1>
+                <p> Bridge in London was officially opened by H.R.H. The Prince of Wales. After the ceremony the
+                    bascules were raised to allow a flotilla of ships and boats to sail down the Thames.
+                    Tower Bridge is a combined bascule and suspension bridge in London built between 1886 and 1894. The
+                    bridge crosses the River Thames close to the Tower of London and has become an iconic symbol of
+                    London, resulting in it sometimes being confused with London Bridge, situated some 0.80 km upstream.
+                </p>
+                <button>Learn more</button>
+            </div>
+        </div>
+    </div>
+    <div class="Category">
+        <div class="Cheading">
+            <h1>Our Category</h1>
+        </div>
+        <div class="Cfirst" id="Cs">
+            <div class="book">
+                <img src="{% static 'home/C1.jpg' %}">
+                <h2>Warlight</h2>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/C2.jpg' %}">
+                <h2>Warlight</h2>
+
+            </div>
+            <div class="book">
+                <img src="{% static 'home/C3.jpg' %}">
+                <h2>Warlight</h2>
+
+            </div>
+            <div class="book">
+                <img src="{% static 'home/C4.jpg' %}">
+                <h2>Warlight</h2>
+            </div>
+        </div>
+    </div>
+    <div class="break" style="background-color:#fff;"></div>
+    <div class="break" style="background-color:#fff ; height: 30px;"></div>
+    <div class="Kidetarial">
+        <div class="Kidheading">
+            <h1>The Best for Little Ones</h1>
+        </div>
+        <div class="Mfirst">
+            <div class="book">
+                <img src="{% static 'home/L1.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L2.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L3.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L4.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+        </div>
+        <div class="Mfirst" id="Ms">
+            <div class="book">
+                <img src="{% static 'home/L1.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L2.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L3.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+            <div class="book">
+                <img src="{% static 'home/L4.jpg' %}">
+                <h2>Warlight</h2>
+                <h3>Novel by Michael Ondaatje</h3>
+                <a>Learn more</a>
+            </div>
+        </div>
+    </div>
+    <div class="break" style="background-color:#fff;"></div>
+    <div class="feedback">
+        <div class="innerf">
+            <h1>feedback</h1>
+            <div class="f">
+                <input type="email" name="email" id="email" class="inf" placeholder="Email">
+                <input type="text" name="name" id="name" class="inf" placeholder="Name">
+            </div>
+            <div class="f">
+                <input type="text" name="Title" id="Title" class="inf" placeholder="Title">
+                <input type="text" name="Phone" id="Phone" class="inf" placeholder="Phone">
+            </div>
+            <div class="textbox">
+                <textarea name="text" id="text" class="textboxFeed" placeholder="Leave us a message..."></textarea>
+            </div>
+            <button  id='submit'>feedback</button>
+        </div>
+    </div>
+    <div class="last">
+        <h1>Our Website</h1>
+        <p>For years our publishing company has been instrumental in picking the best authors from the rest, enhancing
+            the reading experience for millions of Americans yearly!</p>
+        <div class="Ls">
+            <div class="l" id="y"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-youtube" viewBox="0 0 16 16">
+                    <path
+                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                </svg>
+            </div>
+
+            <div class="l" id="t">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                </svg>
+
+            </div>
+            <div class="l" id="g">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let dragP = document.getElementById('pBox')
+    dragP.style.opacity = "0"
+    dragP.style.visibility = "hidden"
+    document.getElementById('person').addEventListener('click', () => {
+
+        if (dragP.style.opacity == '1') {
+                dragP.style.opacity = "0"
+                dragP.style.visibility = "hidden"
+            }
+        
+        else {
+            dragP.style.opacity = "1"
+            dragP.style.visibility = "visible"
+        }
+    })
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    document.getElementById('submit').addEventListener('click', () => {
+
+        let email = document.getElementById('email').value
+        let name = document.getElementById('name').value
+        let Title = document.getElementById('Title').value
+        let Phone = document.getElementById('Phone').value
+        let text = document.getElementById('text').value
+        if (email.length != 0 && name.length != 0 && Title.length != 0 && Phone.length != 0 && text.length != 0) {
+
+
+            const csrftoken = getCookie('csrftoken');
+            data = { 'Email': email, 'Name': name, 'Title': Title, 'Phone': Phone, 'Text': text }
+
+            fetch('/FeedSubmit', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': csrftoken,
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    if (data.status) {
+
+                        document.getElementById('email').value=''
+         document.getElementById('name').value=''
+        document.getElementById('Title').value=''
+        document.getElementById('Phone').value=''
+        document.getElementById('text').value=''
+                        let message = document.getElementById('message')
+                        message.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>success</strong> done!.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       </div>`
+                        setTimeout(() => {
+                            message.innerHTML = ""
+                        }, 5000);
+                    }
+                    else {
+                        document.getElementById('email').value=''
+         document.getElementById('name').value=''
+        document.getElementById('Title').value=''
+        document.getElementById('Phone').value=''
+        document.getElementById('text').value=''
+                        let message = document.getElementById('message')
+                        message.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error</strong> Books occured!.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`
+                        setTimeout(() => {
+                            message.innerHTML = ""
+                        }, 5000);
+                    }
+
+                })
+
+        }
+        else {
+            let message = document.getElementById('message')
+            message.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error</strong> Books occured!.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`
+            setTimeout(() => {
+                message.innerHTML = ""
+            }, 5000);
+        }
+
+
+    })
+</script>
+
+</html>
